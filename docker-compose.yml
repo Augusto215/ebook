@@ -1,0 +1,11 @@
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ebook-site
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

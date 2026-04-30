@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ebooks Premium | Ebooks Sucesso Digital</title>
+  <title>Digital Success - Ebooks e Cursos sobre Transformação Digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,6 +26,10 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -66,16 +70,82 @@
       animation-delay: 2.2s;
     }
 
+    header {
+      background: rgba(11, 16, 22, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1.2rem 0;
+    }
+
+    .header-wrapper {
+      width: min(100% - 2rem, var(--max-width));
+      margin-inline: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: "Sora", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .cta-btn {
+      appearance: none;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      background: rgba(255, 107, 44, 0.1);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background: rgba(255, 107, 44, 0.2);
+      transform: translateY(-2px);
+    }
+
     .wrapper {
       width: min(100% - 2rem, var(--max-width));
       margin-inline: auto;
     }
 
     .hero {
-      padding: 4.8rem 0 2.3rem;
+      padding: 4.8rem 0 3rem;
       display: grid;
       gap: 1.1rem;
       animation: reveal 0.75s ease;
+      text-align: center;
+      align-items: center;
+      justify-items: center;
     }
 
     .tag {
@@ -92,38 +162,206 @@
 
     h1 {
       font-family: "Sora", sans-serif;
-      font-size: clamp(2rem, 3.8vw, 3.6rem);
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
       line-height: 1.1;
-      max-width: 16ch;
+      max-width: 20ch;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
 
+    h2 {
+      font-family: "Sora", sans-serif;
+      font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
     .hero p {
       color: var(--muted);
-      max-width: 58ch;
+      max-width: 65ch;
       font-size: clamp(1rem, 1.8vw, 1.15rem);
     }
 
-    .trust {
+    .hero-cta {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.8rem;
+      gap: 1rem;
+      margin-top: 1.5rem;
     }
 
-    .trust span {
+    .primary-btn {
+      appearance: none;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #ff6b2c, #ff8440);
+      color: #140d07;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.05);
+    }
+
+    .secondary-btn {
+      appearance: none;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      background: transparent;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(31, 214, 194, 0.1);
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      text-align: left;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+
+    .highlights {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .highlight-icon {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(90deg, var(--accent), #62ffe4);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 700;
+      color: #051114;
+    }
+
+    .highlight-item span {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .highlight-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .highlight-desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, rgba(31, 214, 194, 0.2), rgba(255, 107, 44, 0.2));
+      border-radius: var(--radius);
       border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.35rem 0.72rem;
-      font-size: 0.88rem;
-      color: #c3d0dd;
-      background: rgba(8, 14, 22, 0.5);
-      backdrop-filter: blur(4px);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      text-align: center;
+    }
+
+    .about-image p {
+      font-size: 5rem;
+      margin: 0;
+    }
+
+    .values {
+      padding: 4rem 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .value-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+      display: grid;
+      gap: 1rem;
+      animation: reveal 0.85s ease both;
+    }
+
+    .value-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .value-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .value-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(90deg, var(--primary), #ff954d);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+
+    .value-card h3 {
+      font-family: "Sora", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .value-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
     .products {
-      padding: 1rem 0 5rem;
+      padding: 2rem 0 4rem;
       display: grid;
       gap: 1.3rem;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -133,11 +371,11 @@
       background: var(--card);
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1.2rem;
+      padding: 1.5rem;
       box-shadow: var(--shadow);
       backdrop-filter: blur(8px);
       display: grid;
-      gap: 0.9rem;
+      gap: 1rem;
       position: relative;
       overflow: hidden;
       animation: reveal 0.85s ease both;
@@ -188,28 +426,28 @@
       border: none;
     }
 
-    .title {
+    .card h3 {
       font-family: "Sora", sans-serif;
-      font-size: 1.32rem;
+      font-size: 1.25rem;
       line-height: 1.2;
       font-weight: 700;
     }
 
     .desc {
       color: #b6c5d4;
-      font-size: 0.96rem;
+      font-size: 0.95rem;
     }
 
     .price {
       font-family: "Sora", sans-serif;
-      font-size: 2.15rem;
+      font-size: 2rem;
       letter-spacing: -0.02em;
       font-weight: 800;
     }
 
     .price small {
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 500;
       margin-left: 0.2rem;
     }
@@ -217,17 +455,16 @@
     ul {
       list-style: none;
       display: grid;
-      gap: 0.45rem;
+      gap: 0.5rem;
       color: #d6e2ee;
-      font-size: 0.94rem;
-      min-height: 144px;
+      font-size: 0.93rem;
     }
 
     ul li::before {
-      content: "•";
+      content: "✓";
       color: var(--accent);
-      margin-right: 0.48rem;
-      font-size: 1rem;
+      margin-right: 0.5rem;
+      font-weight: 700;
     }
 
     .buy-btn {
@@ -237,10 +474,12 @@
       background: linear-gradient(90deg, #ff6b2c, #ff8440);
       color: #140d07;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.82rem 1rem;
+      font-size: 0.95rem;
+      padding: 0.8rem 1rem;
       cursor: pointer;
       transition: transform 0.2s ease, filter 0.2s ease;
+      width: 100%;
+      margin-top: 0.5rem;
     }
 
     .buy-btn:hover {
@@ -258,14 +497,131 @@
       margin-top: 0.25rem;
       color: var(--muted);
       min-height: 1.2rem;
-      font-size: 0.86rem;
+      font-size: 0.8rem;
+    }
+
+    .testimonials {
+      padding: 4rem 0;
+      background: rgba(18, 27, 36, 0.5);
+      border-radius: var(--radius);
+      margin: 2rem 0;
+      padding: 3rem 2rem;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial {
+      background: rgba(16, 24, 34, 0.6);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .stars {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+
+    .testimonial-text {
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #051114;
+      font-size: 0.9rem;
+    }
+
+    .author-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .author-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .author-role {
+      color: var(--muted);
+      font-size: 0.8rem;
     }
 
     footer {
-      padding: 0.2rem 0 2.2rem;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      width: min(100% - 2rem, var(--max-width));
+      margin-inline: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      width: min(100% - 2rem, var(--max-width));
+      margin-inline: auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
       text-align: center;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.85rem;
+    }
+
+    .section-center {
+      text-align: center;
     }
 
     @keyframes reveal {
@@ -296,6 +652,31 @@
       .featured {
         transform: none;
       }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      nav a {
+        display: none;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -303,68 +684,222 @@
   <div class="ambient-shape shape-1"></div>
   <div class="ambient-shape shape-2"></div>
 
+  <header>
+    <div class="header-wrapper">
+      <div class="logo">Digital Success</div>
+      <nav>
+        <a href="#about">Sobre</a>
+        <a href="#valores">Valores</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#contato">Contato</a>
+        <button class="cta-btn">Login</button>
+      </nav>
+    </div>
+  </header>
+
   <main class="wrapper">
     <section class="hero">
-      <span class="tag">Ecommerce Oficial</span>
-      <h1>Domine o digital com conteúdos que vão direto ao resultado.</h1>
+      <span class="tag">Transformação Digital</span>
+      <h1>Sua jornada para o sucesso digital começa aqui</h1>
       <p>
-        Escolha seu nível e finalize no checkout seguro do Mercado Pago com cartão de crédito.
-        O acesso é liberado logo após a confirmação do pagamento.
+        Somos referência em educação digital. Criamos conteúdo de qualidade que transforma ideias em resultados reais.
+        Mais de 50 mil pessoas já transformaram suas carreiras com nossos ebooks e cursos.
       </p>
-      <div class="trust">
-        <span>Pagamento seguro</span>
-        <span>Checkout Mercado Pago</span>
-        <span>Suporte dedicado</span>
+      <div class="hero-cta">
+        <button class="primary-btn" onclick="document.getElementById('produtos').scrollIntoView()">Explorar Produtos</button>
+        <button class="secondary-btn" onclick="document.getElementById('about').scrollIntoView()">Saiba Mais</button>
       </div>
     </section>
 
-    <section class="products" aria-label="Produtos disponíveis">
-      <article class="card">
-        <span class="badge">Iniciante</span>
-        <h2 class="title">Ebook Starter</h2>
-        <p class="desc">Guia objetivo para sair do zero e aplicar estratégias práticas já no primeiro dia.</p>
-        <p class="price">R$ 37<small>pagamento único</small></p>
-        <ul>
-          <li>PDF completo e atualizado</li>
-          <li>Checklist de execução</li>
-          <li>Bônus: plano de 7 dias</li>
-        </ul>
-        <button class="buy-btn" data-product-id="ebook_starter">Comprar com cartão</button>
-        <p class="status" id="status-ebook_starter"></p>
-      </article>
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>Sobre a Digital Success</h2>
+        <p>
+          Fundada em 2019, a Digital Success nasceu da visão de democratizar o conhecimento sobre transformação digital.
+          Acreditamos que qualquer pessoa, em qualquer lugar, pode dominar as ferramentas e estratégias que movem o mercado digital.
+        </p>
+        <p>
+          Nossos ebooks e cursos são desenvolvidos por especialistas com mais de 15 anos de experiência no mercado.
+          Cada conteúdo é testado na prática e atualizado constantemente para refletir as tendências mais recentes.
+        </p>
+        <div class="highlights">
+          <div class="highlight-item">
+            <div class="highlight-icon">👥</div>
+            <span>
+              <div class="highlight-title">Comunidade Global</div>
+              <div class="highlight-desc">Mais de 50 mil alunos em 30 países</div>
+            </span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">📚</div>
+            <span>
+              <div class="highlight-title">Conteúdo Premium</div>
+              <div class="highlight-desc">15+ ebooks e 8+ cursos especializados</div>
+            </span>
+          </div>
+          <div class="highlight-item">
+            <div class="highlight-icon">⭐</div>
+            <span>
+              <div class="highlight-title">Taxa de Satisfação</div>
+              <div class="highlight-desc">98% de clientes satisfeitos</div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image">
+        <p>📈</p>
+      </div>
+    </section>
 
-      <article class="card featured">
-        <span class="badge">Mais vendido</span>
-        <h2 class="title">Ebook Pro</h2>
-        <p class="desc">Aprofundamento com framework de crescimento e técnicas avançadas para escalar resultados.</p>
-        <p class="price">R$ 97<small>pagamento único</small></p>
-        <ul>
-          <li>Conteúdo avançado em módulos</li>
-          <li>Templates prontos para uso</li>
-          <li>Atualizações gratuitas</li>
-        </ul>
-        <button class="buy-btn" data-product-id="ebook_pro">Comprar com cartão</button>
-        <p class="status" id="status-ebook_pro"></p>
-      </article>
+    <section id="valores" class="values">
+      <h2 class="section-center">Nossos Valores</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h3>Inovação</h3>
+          <p>Estamos sempre na vanguarda das tendências digitais, trazendo as melhores práticas e estratégias mais atuais.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3>Resultados</h3>
+          <p>Cada conteúdo é criado para gerar impacto real. Medimos sucesso pelos resultados concretos dos nossos alunos.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Transparência</h3>
+          <p>Somos honestos sobre o que funciona e o que não funciona. Sem promessas vazias, apenas estratégias comprovadas.</p>
+        </div>
+      </div>
+    </section>
 
-      <article class="card">
-        <span class="badge">Oferta premium</span>
-        <h2 class="title">Curso Completo + Mentoria</h2>
-        <p class="desc">Treinamento do básico ao avançado com acompanhamento para implementação e escala.</p>
-        <p class="price">R$ 257<small>pagamento único</small></p>
-        <ul>
-          <li>Curso completo em vídeo</li>
-          <li>Acesso à mentoria em grupo</li>
-          <li>Material de suporte exclusivo</li>
-        </ul>
-        <button class="buy-btn" data-product-id="curso_mentoria">Comprar com cartão</button>
-        <p class="status" id="status-curso_mentoria"></p>
-      </article>
+    <section id="produtos">
+      <h2 class="section-center">Nossos Produtos</h2>
+      <p style="text-align: center; color: var(--muted); margin-bottom: 2rem;">
+        Escolha o produto ideal para sua jornada digital. Acesso liberado imediatamente após o pagamento.
+      </p>
+
+      <div class="products" aria-label="Produtos disponíveis">
+        <article class="card">
+          <span class="badge">Iniciante</span>
+          <h3>Ebook Starter</h3>
+          <p class="desc">Seu guia para sair do zero. Estratégias práticas para aplicar desde o primeiro dia.</p>
+          <p class="price">R$ 37<small>uma vez</small></p>
+          <ul>
+            <li>PDF completo + atualizado</li>
+            <li>Checklist de execução</li>
+            <li>Bônus: plano de 7 dias</li>
+          </ul>
+          <button class="buy-btn" data-product-id="ebook_starter">Adquirir Agora</button>
+          <p class="status" id="status-ebook_starter"></p>
+        </article>
+
+        <article class="card featured">
+          <span class="badge">Mais Popular</span>
+          <h3>Ebook Pro</h3>
+          <p class="desc">Aprofundamento com framework comprovado. Técnicas avançadas para escalar seus resultados.</p>
+          <p class="price">R$ 97<small>uma vez</small></p>
+          <ul>
+            <li>Conteúdo avançado em módulos</li>
+            <li>Templates prontos para usar</li>
+            <li>Atualizações gratuitas pelo ano</li>
+          </ul>
+          <button class="buy-btn" data-product-id="ebook_pro">Adquirir Agora</button>
+          <p class="status" id="status-ebook_pro"></p>
+        </article>
+
+        <article class="card">
+          <span class="badge">Premium</span>
+          <h3>Curso Completo + Mentoria</h3>
+          <p class="desc">Treinamento intensivo com mentoria. Do básico ao avançado com suporte dedicado.</p>
+          <p class="price">R$ 257<small>uma vez</small></p>
+          <ul>
+            <li>Curso em vídeo HD</li>
+            <li>Mentoria em grupo mensal</li>
+            <li>Certificado profissional</li>
+          </ul>
+          <button class="buy-btn" data-product-id="curso_mentoria">Adquirir Agora</button>
+          <p class="status" id="status-curso_mentoria"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>O que nossos alunos dizem</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "O Ebook Pro mudou completamente minha forma de trabalhar. Apliquei as estratégias e meus resultados triplicaram em 3 meses."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MC</div>
+            <div class="author-info">
+              <div class="author-name">Maria Costa</div>
+              <div class="author-role">Empreendedora Digital</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "Nunca pensei que conseguiria dominar tão bem essas ferramentas. O curso foi claro, prático e com suporte excepcional."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">JS</div>
+            <div class="author-info">
+              <div class="author-name">João Silva</div>
+              <div class="author-role">Especialista em Marketing</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">
+            "Excelente investimento. O conteúdo é atualizado constantemente e a comunidade é muito ativa. Super recomendo!"
+          </p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AP</div>
+            <div class="author-info">
+              <div class="author-name">Ana Paula</div>
+              <div class="author-role">Gestora de Projetos</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <span id="footer-year"></span> Ebooks Sucesso Digital. Todos os direitos reservados.
+  <footer id="contato">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Digital Success</h4>
+        <p>Transformando sonhos digitais em resultados reais desde 2019.</p>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">
+          <strong>CNPJ:</strong> 61.266.225/0001-89
+        </p>
+      </div>
+      <div class="footer-section">
+        <h4>Produtos</h4>
+        <a href="#produtos">Ebook Starter</a>
+        <a href="#produtos">Ebook Pro</a>
+        <a href="#produtos">Curso Completo</a>
+      </div>
+      <div class="footer-section">
+        <h4>Suporte</h4>
+        <a href="mailto:jankozxs@gmail.com">Email: jankozxs@gmail.com</a>
+        <a href="#">Central de Ajuda</a>
+        <a href="#">Termos de Serviço</a>
+      </div>
+      <div class="footer-section">
+        <h4>Conecte-se</h4>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footer-year"></span> Digital Success. Todos os direitos reservados. | Desenvolvido com ❤️</p>
+    </div>
   </footer>
 
   <script>
